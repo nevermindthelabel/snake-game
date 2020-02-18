@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('made it')
+  res.sendFile(__dirname + '/public/index.html')
 });
 
 app.listen(PORT, () => console.log('server running'));
