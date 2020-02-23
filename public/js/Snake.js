@@ -29,14 +29,16 @@ export default class Snake {
   }
 
   update(time) {
-    if(time >= this.lastMoveTime + this.moveInterval){
+    if (time >= this.lastMoveTime + this.moveInterval) {
       this.lastMoveTime = time;
       this.move();
     }
   }
   move() {
-    this.body[1].x = this.body[0].x;
-    this.body[1].y = this.body[0].y;
+    for (let i = this.body.length - 1; i > 0; i--) {
+      this.body[i].x = this.body[i - 1].x;
+      this.body[i].y = this.body[i - 1].y;
+    }
     this.body[0].x += this.direction.x * 16;
     this.body[0].y += this.direction.y * 16;
   }
