@@ -35,6 +35,8 @@ export default class Snake {
     }
   }
   move() {
+    this.body[1].x = this.body[0].x;
+    this.body[1].y = this.body[0].y;
     this.body[0].x += this.direction.x * 16;
     this.body[0].y += this.direction.y * 16;
   }
