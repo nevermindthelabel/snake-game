@@ -6,9 +6,15 @@ export default class Snake {
     this.tileSize = 16;
     this.direction = Phaser.Math.Vector2.RIGHT;
     this.body = [];
-    this.body.push(this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0xff0000).setOrigin(0));
+    this.body.push(this.scene.add.rectangle(this.scene.game.config.width /2, this.scene.game.config.height /2, this.tileSize, this.tileSize, 0xff0000).setOrigin(0));
     scene.input.keyboard.on('keydown', e => { this.keydown(e) });
     this.apple = this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0x00ff00).setOrigin(0);
+    this.positionApple();
+  }
+
+  positionApple() {
+    this.apple.x = Math.random() * this.scene.game.config.width;
+    this.apple.y = Math.random() * this.scene.game.config.height;
   }
 
   keydown(event) {
