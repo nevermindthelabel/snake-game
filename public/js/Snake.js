@@ -47,13 +47,15 @@ export default class Snake {
 
     if (this.apple.x === x && this.apple.y === y) {
       console.log('eating')
+      this.body.push(this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0xffffff).setOrigin(0));
+      this.positionApple();
     }
 
     for (let i = this.body.length - 1; i > 0; i--) {
       this.body[i].x = this.body[i - 1].x;
       this.body[i].y = this.body[i - 1].y;
     }
-    this.body[0].x += x;
-    this.body[0].y += y;
+    this.body[0].x = x;
+    this.body[0].y = y;
   }
 }
