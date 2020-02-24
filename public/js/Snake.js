@@ -2,7 +2,7 @@ export default class Snake {
   constructor(scene) {
     this.scene = scene;
     this.lastMoveTime = 0;
-    this.moveInterval = 1000;
+    this.moveInterval = 500;
     this.tileSize = 16;
     this.direction = Phaser.Math.Vector2.RIGHT;
     this.body = [];
@@ -18,7 +18,6 @@ export default class Snake {
   }
 
   keydown(event) {
-    console.log(event)
     switch (event.keyCode) {
       case 37: // left
         this.direction = Phaser.Math.Vector2.LEFT;
@@ -46,7 +45,6 @@ export default class Snake {
     let y = this.body[0].y + this.direction.y * this.tileSize;
 
     if (this.apple.x === x && this.apple.y === y) {
-      console.log('eating')
       this.body.push(this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0xffffff).setOrigin(0));
       this.positionApple();
     }
