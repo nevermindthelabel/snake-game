@@ -62,8 +62,10 @@ export default class Snake {
     }
     // Death by running into your tail
     let tail = this.body.slice(1);
-    if(tail.filter(s => s.x === this.body[0].x && s.y === this.body[0].y).length > 0){
-      console.log('touching')
+    // if(tail.filter(s => s.x === this.body[0].x && s.y === this.body[0].y).length > 0){
+    //   this.scene.scene.restart();
+    // }
+    if (tail.some(s => s.x === this.body[0].x && s.y === this.body[0].y)) {
       this.scene.scene.restart();
     }
   }
