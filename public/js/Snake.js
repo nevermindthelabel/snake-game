@@ -19,21 +19,21 @@ export default class Snake {
 
   keydown(event) {
     switch (event.keyCode) {
-      case 37: // left
-      if(this.direction !== Phaser.Math.Vector2.RIGHT)
-        this.direction = Phaser.Math.Vector2.LEFT;
+      case 37: // left - only if you are not going right
+        if (this.direction !== Phaser.Math.Vector2.RIGHT)
+          this.direction = Phaser.Math.Vector2.LEFT;
         break
-      case 38: // up
-      if(this.direction !== Phaser.Math.Vector2.DOWN)
-        this.direction = Phaser.Math.Vector2.UP;
+      case 38: // up - only if you are not going down
+        if (this.direction !== Phaser.Math.Vector2.DOWN)
+          this.direction = Phaser.Math.Vector2.UP;
         break
-      case 39: // right
-      if(this.direction !== Phaser.Math.Vector2.LEFT)
-        this.direction = Phaser.Math.Vector2.RIGHT;
+      case 39: // right - only if you are not going left
+        if (this.direction !== Phaser.Math.Vector2.LEFT)
+          this.direction = Phaser.Math.Vector2.RIGHT;
         break
-      case 40: // down
-      if(this.direction !== Phaser.Math.Vector2.UP)
-        this.direction = Phaser.Math.Vector2.DOWN;
+      case 40: // down - only if you are not going up
+        if (this.direction !== Phaser.Math.Vector2.UP)
+          this.direction = Phaser.Math.Vector2.DOWN;
         break
     }
   }
