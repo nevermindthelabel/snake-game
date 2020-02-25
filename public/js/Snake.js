@@ -53,7 +53,7 @@ export default class Snake {
       this.body.push(this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0xffffff).setOrigin(0));
       this.positionApple();
       this.score++;
-      console.log(this.score);
+      this.moveInterval--;
     }
 
     for (let i = this.body.length - 1; i > 0; i--) {
