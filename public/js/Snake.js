@@ -1,6 +1,7 @@
 export default class Snake {
   constructor(scene) {
     this.scene = scene;
+    this.score = 0;
     this.lastMoveTime = 0;
     this.moveInterval = 500;
     this.tileSize = 16;
@@ -51,6 +52,8 @@ export default class Snake {
     if (this.apple.x === x && this.apple.y === y) {
       this.body.push(this.scene.add.rectangle(0, 0, this.tileSize, this.tileSize, 0xffffff).setOrigin(0));
       this.positionApple();
+      this.score++;
+      console.log(this.score);
     }
 
     for (let i = this.body.length - 1; i > 0; i--) {
